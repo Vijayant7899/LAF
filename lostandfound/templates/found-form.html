@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blank Page - Brand</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Footer-Basic.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Footer-Clean.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Navigation-with-Button.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Simple-Slider.css' %}">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><a class="navbar-brand" href="{% url 'home' %}"><br>Lost &amp; Found<br><br></a>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
+                                    data-toggle="dropdown" aria-expanded="false" href="#"><i
+                                        class="fas fa-search"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu"
+                                    aria-labelledby="searchDropdown">
+
+                                </div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow" role="presentation">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                        data-toggle="dropdown" aria-expanded="false" href="#"><span
+                                            class="d-none d-lg-inline mr-2 text-gray-600 small">{{user.first_name}}</span><img
+                                            class="border rounded-circle img-profile"
+                                            src="{% static 'assets/img/avatars/avatar1.jpeg'%}"></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
+                                        <a class="dropdown-item" role="presentation" href="{% url 'change-password' %}"><i
+                                                class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Change Password
+                                        </a>
+<!--                                        <a-->
+<!--                                            class="dropdown-item" role="presentation" href="{% url 'mysubmitted' %}"><i-->
+<!--                                                class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Change Password-->
+<!--                                        </a>-->
+                                        <a class="dropdown-item" role="presentation" href="{% url 'mysubmitted' %}"><i
+                                                class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity
+                                            log</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation"
+                                            href="{% url 'logout' %}"><i
+                                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout
+                                    </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="card shadow-lg o-hidden border-0 my-5">
+                        <div class="card-body p-0">
+                            <div class="row">
+                                <div class="col-lg-5 d-none d-lg-flex">
+                                    <div class="flex-grow-1 bg-register-image"
+                                        style="background-image: url('{% static 'assets/img/dogs/image2.jpeg' %}');"></div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h4 class="text-dark mb-4">Submit Your Found Detail</h4>
+                                        </div>
+                                        <form class="user"  action="{% url 'dashboard' %}" method="post">
+                                            {% csrf_token %}
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0"><label
+                                                        for="iteam">Iteam</label><input
+                                                        class="form-control form-control-user" type="text"
+                                                        id="iteam" placeholder="Iteam Name"
+                                                        name="iteam"></div>
+                                                        <div class="col-sm-6 mb-3 mb-sm-0"><label  for="inputState"><strong>State</strong><br></label>
+                                                            <!-- <input class="form-control"  for="inputState" name="city"> -->
+                                                            <select id="inputState" name="state" class="form-control">
+                                                                <option selected>Choose...</option>
+                                                                <option>Andhra Pradesh</option>
+                                                                <option> Arunachal Pradesh</option>
+                                                                <option>Assam</option>
+                                                                <option>Bihar</option>
+                                                                <option>Chhattisgarh</option>
+                                                                <option>Goa</option>
+                                                                <option>Gujarat</option>
+                                                                <option>Haryana</option>
+                                                                <option>Himachal Pradesh</option>
+                                                                <option>Jharkhand</option>
+                                                                <option>Karnataka</option>
+                                                                <option>Kerala	</option>
+                                                                <option>Madhya Pradesh</option>
+                                                                <option>Maharashtra</option>
+                                                                <option>Manipur</option>
+                                                                <option>Meghalaya</option>
+                                                                <option>Mizoram</option>
+                                                                <option>Nagaland</option>
+                                                                <option>Odisha</option>
+                                                                <option>Punjab</option>
+                                                                <option>Rajasthan</option>
+                                                                <option>Tamil Nadu</option>
+                                                                <option>Telangana</option>
+                                                                <option>Tripura</option>
+                                                                <option>Uttar Pradesh	</option>
+                                                                <option>Uttarakhand</option>
+                                                                <option>West Bengal</option>
+                                                                <option>Andaman and Nicobar Islands</option>
+                                                                <option>Chandigarh</option>
+                                                                <option>Dadra & Nagar Haveli and Daman & Diu</option>
+                                                                <option>Delhi</option>
+                                                                <option>Jammu and Kashmir</option>
+                                                                <option>Lakshadweep</option>
+                                                                <option>Puducherry</option>
+                                                                <option>Ladakh	</option>
+                                                              </select>
+                                                        </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0"><label
+                                                        for="city">City</label><input
+                                                        class="form-control form-control-user" type="text"
+                                                        id="city" placeholder="City" name="city">
+                                                </div>
+                                                <div class="col-sm-6"><label for="phone">Phone Number</label><input
+                                                        class="form-control form-control-user" type="text"
+                                                        id="phone" placeholder="Phone Number"
+                                                        name="phone"></div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0"><label
+                                                        for="landMark">LandMark</label><input
+                                                        class="form-control form-control-user" type="text"
+                                                        id="landmark" placeholder="Land Mark" name="landmark">
+                                                </div>
+                                                <div class="col-sm-6"><label for="datetime">Date & Time</label><input
+                                                        class="form-control form-control-user" type="datetime-local"
+                                                        id="datetime" placeholder="Date &amp; Time"
+                                                        name="datetime"></div>
+                                            </div>
+                                            <div class="form-group"><label for="location">Exact Location</label><input
+                                                    class="form-control form-control-user" type="text"
+                                                    id="location" 
+                                                    placeholder="Exact Location" name="location"></div>
+                                            <label for="content">Description of Iteam</label>
+
+                                            <textarea class="form-control" name="content" id="content"
+                                               ></textarea><br>
+                                            <label for="iteam_pic">Select Images:</label>
+                                            <input type="file" id="iteam_pic" name="iteam_pic" ><br>
+
+
+                                            <hr><button class="btn btn-primary btn-block text-white btn-user"
+                                                type="submit">Submit</button>
+                                            <hr>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © LOF2020</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/chart.min.js' %}"></script>
+    <script src="{% static 'assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'assets/js/Simple-Slider.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+
+</html>

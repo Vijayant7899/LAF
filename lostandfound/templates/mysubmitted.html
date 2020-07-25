@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Submitted reports</title>
+</head>
+<body>
+<h1>Reports</h1>
+
+	
+{% for report in object_list %}
+
+		<legend>report</legend>
+    <label>{{ report.username }} report id {{ report.id }}</label>
+
+    <label>{{ report.iteam }}</label>
+    <br>
+    <label>{{ report.phone }}</label>
+    <br>
+    <label>{{ report.city }}</label>
+    <br>
+    <label>{{ report.location }}</label>
+    <br>
+    <label>{{ report.pincode }}</label>
+    <br>
+    <label>{{ report.datetime }}</label>
+    <br>
+    <label>{{ report.content }}</label>
+    <br>
+    <h1> do you want to deleteS</h1>
+    <p><a href="{% url 'delete' report.id %}">Delete</a> <a href="../"> cancel</a></p>
+    <hr>
+
+
+{% empty %}
+    <label>No Reports yet.</label>
+
+{% endfor %}
+
+
+</body>
+</html>
